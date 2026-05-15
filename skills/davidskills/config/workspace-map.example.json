@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "workspaces": [
+    {
+      "workspace_path": "/absolute/path/to/workspace",
+      "skilldocs_base_path": "/absolute/path/to/workspace/docs"
+    }
+  ]
+}

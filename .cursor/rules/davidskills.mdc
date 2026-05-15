@@ -1,0 +1,18 @@
+---
+description: DavidSkills — document-driven phase router for Python and PHP (planning, development, review, performance, inquiry, update). Use with SkillDocs; loads davidskills/skills/davidskills/SKILL.md before substantive code work.
+globs: *
+alwaysApply: false
+---
+
+# DavidSkills (Cursor)
+
+Before **Planning, Development, Review, Performance debugging, or Update** work on **Python / PHP** codebases in this workspace, read **`davidskills/skills/davidskills/SKILL.md`** (relative to the workspace root that contains the `davidskills` directory).
+
+1. Read **only** that router first.
+2. Choose **one** primary mode; then read **only** that mode’s `SKILL.md`.
+3. Do **not** preload other DavidSkills workflows, protocols, or quality files until the active phase directs you.
+4. Respect **SkillDocs** (`task.md`, `design.md`, etc.) and the **implementation readiness gate** before coding when using Development mode.
+
+Pure inquiry or repo navigation may use **Exception** per the router without loading the full planning stack.
+
+If the router file path is wrong for your layout, fix the path in this rule or in your workspace root.
