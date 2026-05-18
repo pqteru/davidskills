@@ -1,6 +1,6 @@
 ---
 name: davidskills-quality
-description: DavidSkills quality gate. Use after implementation and before declaring a phase complete—language-neutral checks plus Python and PHP specific rules when those files are in scope.
+description: DavidSkills quality gate. Use after implementation and before declaring a phase complete—language-neutral checks plus Python, PHP, Node.js, and Swift specific rules when those files are in scope.
 ---
 
 # DavidSkills: Quality
@@ -17,6 +17,8 @@ Do not substitute Quality for Planning or Review.
 4. Inspect changed paths’ extensions; load **every** match:
    - `.py` → read `../davidskills-quality-python/SKILL.md`
    - `.php` → read `../davidskills-quality-php/SKILL.md`
+   - `.ts`, `.js`, Node.js package/config files → read `../davidskills-quality-node/SKILL.md`
+   - `.swift`, `Package.swift`, `.xcodeproj`, `.xcworkspace`, `.pbxproj`, Apple platform files → read `../davidskills-quality-swift/SKILL.md`
 5. Fix failures before final `task.md` / `verification.md` writeback
 
 ## Required behavior

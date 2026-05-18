@@ -1,0 +1,4 @@
+interface:
+  display_name: "DavidSkills Quality Swift"
+  short_description: "Swift-specific quality gate for DavidSkills."
+  default_prompt: "Run the DavidSkills Swift quality gate on touched Swift files."
