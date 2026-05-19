@@ -1,6 +1,6 @@
 ---
 name: davidskills-review
-description: DavidSkills review module. Use when validating implementation against approved SkillDocs for Python and/or PHP.
+description: DavidSkills review module. Use when validating implementation against approved SkillDocs.
 ---
 
 # DavidSkills: Review
@@ -12,10 +12,10 @@ Assume the router classified **Review**. If not, reroute.
 ## Load order
 
 1. Read `../davidskills/workflows/03-review.md`
-2. Read `../davidskills/workflows/engineering-standards.md` — verify **Python** and/or **PHP** sections as applicable
+2. Read `../davidskills/workflows/engineering-standards.md` — verify applicable sections for the stack in scope
 3. Identify the active feature folder under SkillDocs; ask if unknown
 4. Load `task.md` (active phase), `design.md`, `test.md`, `verification.md`, feature `architecture.md` when present, then project-level `architecture.md`
-5. If PHP refactors are in scope, read `../davidskills/protocols/php-maintenance-mode.md` and verify mode matches approvals
+5. When broad refactors apply, read stack maintenance protocols referenced in SkillDocs (e.g. `../davidskills/protocols/php-maintenance-mode.md`) and verify mode matches approvals
 6. Read shared `../davidskills/protocols/custom-*.md` only when the review step depends on them
 
 ## Required behavior

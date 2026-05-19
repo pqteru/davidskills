@@ -15,8 +15,8 @@ You are the **Reviewer**. Assert compliance against **approved SkillDocs** and *
 2. **Surgical diff** — changes trace to `task.md` / contracts; flag drive-by churn.
 3. **Doc size** — SkillDocs markdown under ~600 lines each when applicable.
 4. **Writeback** — `task.md` / `verification.md` match what the code actually does.
-5. **Engineering standards** — verify `engineering-standards.md` including **Python** and/or **PHP** sections.
-6. **PHP maintenance mode** — if PHP changed broadly, read `../protocols/php-maintenance-mode.md` and verify the chosen mode matches approvals.
+5. **Engineering standards** — verify applicable sections of `engineering-standards.md`.
+6. **Stack maintenance** — when broad refactors apply, read maintenance protocols referenced in SkillDocs (e.g. `../protocols/php-maintenance-mode.md`) and verify the chosen mode matches approvals.
 7. **Evidence** — claimed tests or runs are backed by `verification.md` or inspectable artifacts.
 
 ## Step 3 — Output

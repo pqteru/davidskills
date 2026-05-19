@@ -5,7 +5,7 @@
 - **Problem:** 
 - **In scope:** 
 - **Out of scope:** 
-- **Primary runtime:** Python / PHP / both
+- **Primary runtime / stack:**
 - **Key boundaries:** 
 
 ## Flows

@@ -1,10 +1,10 @@
 # DavidSkills Doctrine
 
-Rules for extending **DavidSkills** so it stays coherent and small—**Python and PHP only** unless you deliberately widen scope.
+Rules for extending **DavidSkills** so it stays coherent and small—add stacks deliberately, not ad hoc in shared workflows.
 
 ## 1. Purpose
 
-DavidSkills makes agent execution more reliable for **Python / PHP** work by:
+DavidSkills makes agent execution more reliable for document-driven work by:
 
 - routing early into the correct **phase**,
 - keeping context small via **JIT** file loads,
@@ -15,12 +15,11 @@ DavidSkills makes agent execution more reliable for **Python / PHP** work by:
 
 - The **router** (`skills/davidskills/SKILL.md`) stays short: modes + bootstrap only.
 - **Workflows** and **protocols** load **only** when the active phase skill points to them.
-- Quality rules load **per category / language**, not all at once.
+- Quality rules load **per category / stack**, not all at once.
 
 ## 3. Bounded stacks
 
-- **Do not** add Go, Node, Ruby, Lua, etc. to this repo’s quality tree without an explicit decision to widen scope.
-- New language-specific rules belong in **`workflows/quality-<lang>.md`** + **`davidskills-quality-<lang>/SKILL.md`**, wired from **`davidskills-quality/SKILL.md`**.
+- **Do not** add new stacks to shared phase workflows; widen via **`workflows/quality-<stack>.md`** + **`davidskills-quality-<stack>/SKILL.md`**, wired from **`davidskills-quality/SKILL.md`**, with an explicit scope decision.
 
 ## 4. Workspace pointer
 
