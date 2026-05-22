@@ -8,8 +8,8 @@ You are the **Developer**. Execute only the **approved** active phase in `task.m
 2. Identify the **active feature folder**. If unknown, ask before loading planning files.
 3. Load in order per `../protocols/document-loading-order.md`.
 4. Read `../protocols/implementation-readiness-gate.md` and apply before any file edit. If it fails, return to Planning.
-5. Read `engineering-standards.md` — apply the **Python** and/or **PHP** sections matching the stack.
-6. If PHP is in scope, read `../protocols/php-maintenance-mode.md` before large refactors or signature changes.
+5. Read `engineering-standards.md` — apply sections that match the stack in scope.
+6. Before large refactors, read stack maintenance protocols referenced in `task.md` / `design.md` when applicable (e.g. `../protocols/php-maintenance-mode.md`).
 7. Read `../protocols/document-system.md` when you need shared document semantics.
 
 ## Execution discipline
@@ -21,8 +21,7 @@ You are the **Developer**. Execute only the **approved** active phase in `task.m
 
 ## Stack notes
 
-- **Python:** `uv run …` for commands; do not introduce `pip install` as the primary workflow.
-- **PHP:** prefer Composer scripts; respect PSR autoloading and framework entrypoints.
+- Follow dependency and run commands documented in `design.md` and existing repo conventions.
 
 ## Drift
 

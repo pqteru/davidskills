@@ -1,6 +1,6 @@
 ---
 name: DavidSkills
-description: Document-driven development router for Python and PHP. Use when the user needs planning, implementation, review, performance debugging, or lightweight inquiry with minimal context loading. Stacks covered: PHP and Python only.
+description: Document-driven development router. Use for planning, implementation, review, performance debugging, or lightweight inquiry with minimal context loading.
 ---
 
 # DavidSkills: Bootstrap-first router
@@ -42,7 +42,7 @@ Before other files:
 
 - **Canonical mapping path:** `skills/davidskills/config/workspace-map.local.json` only.
 - **No preload:** until the mode is chosen, do not read workflows, quality, or templates except bootstrap repair above.
-- **Stacks:** language-specific quality and standards cover **Python** and **PHP** only.
+- **Stacks:** load stack-specific quality, templates, and standards **only when** the active phase skill or touched paths require them—do not assume or preload stacks at the router.
 
 ## 2. Support modules
 

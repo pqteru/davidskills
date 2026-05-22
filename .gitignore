@@ -5,3 +5,9 @@ __pycache__/
 
 # 測試用臨時目錄
 /tmp
+
+# davidskill 本地 workspace state
+.davidskill
+config/workspace-map.local.json
+skills/config/workspace-map.local.json
+skills/devoskill/config/workspace-map.local.json

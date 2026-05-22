@@ -1,6 +1,6 @@
 ---
 name: davidskills-development
-description: DavidSkills development module. Use when implementing approved task.md work for Python and/or PHP codebases.
+description: DavidSkills development module. Use when implementing approved task.md work against SkillDocs contracts.
 ---
 
 # DavidSkills: Development
@@ -23,9 +23,9 @@ Assume the router classified **Development**. If the task is no longer implement
 
 1. If mapping is missing or broken, read `../davidskills-workspace-setup/SKILL.md`; otherwise skip.
 2. Read `../davidskills/workflows/02-development.md`
-3. Read `../davidskills/workflows/engineering-standards.md` — apply **Python** and/or **PHP** sections for files in scope
+3. Read `../davidskills/workflows/engineering-standards.md` — apply sections that match the stack in scope
 4. Load only the active phase in `task.md` and contracts it references (`design.md`, `test.md`, `verification.md`, architecture as needed)
-5. If PHP is in scope for non-trivial refactors, read `../davidskills/protocols/php-maintenance-mode.md`
+5. Before non-trivial refactors, read stack maintenance protocols referenced in SkillDocs when applicable (e.g. `../davidskills/protocols/php-maintenance-mode.md`)
 6. Read shared `../davidskills/protocols/custom-*.md` only when the current step depends on them
 
 Do not read Planning, Review, or Performance workflows unless rerouting.

@@ -2,8 +2,7 @@
 
 ## Methodology
 
-- Python: `uv run pytest …`
-- PHP: `composer test` or project script
+- Document stack-specific test commands and entrypoints (match `design.md` / repo scripts)
 
 ## Suites / cases
 

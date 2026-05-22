@@ -5,7 +5,7 @@
 - **Phase:** 
 - **Goal:** 
 - **Approval:** pending / approved
-- **Stack notes:** Python (`uv`) / PHP (Composer) as applicable
+- **Stack notes:** dependency tooling, run commands, and conventions as applicable
 
 ## 2. Preconditions
 
