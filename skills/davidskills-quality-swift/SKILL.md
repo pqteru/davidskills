@@ -1,6 +1,6 @@
 ---
 name: davidskills-quality-swift
-description: Swift-specific quality rules for DavidSkills. Load alongside davidskills-quality when Swift, SwiftUI, iOS, macOS, Xcode, Swift Package, or App Intents source changed. Covers project tooling, concurrency, memory, SwiftUI, security, tests.
+description: Swift-specific quality rules for DavidSkills. Load alongside davidskills-quality when Swift, SwiftUI, iOS, macOS, Xcode, Swift Package, or App Intents source changed. Covers project tooling, concurrency, memory, SwiftUI (declarative UI, unidirectional State/Action/reducer/side effects), security, tests.
 ---
 
 # DavidSkills: Quality — Swift

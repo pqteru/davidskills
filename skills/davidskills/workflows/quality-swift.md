@@ -28,8 +28,28 @@ Apply after `quality-neutral.md`. Fix failures before writing back to `task.md`.
 
 ## 4. SwiftUI lifecycle and state
 
+Act as an iOS SwiftUI engineer: **declarative UI** plus **unidirectional data flow**. Define these layers before wiring views:
+
+| Layer | Responsibility |
+|-------|----------------|
+| **State** | Every representable screen state (loading, content, empty, error, etc.) |
+| **Action** | User gestures and system events (tap, refresh, timer tick, task completion) |
+| **Reducer / transition** | Pure mapping from `(State, Action) → State` (or equivalent store API) |
+| **Side effects** | API calls, timers, navigation, analytics—owned outside `body`, driven by state or actions |
+| **View** | Renders from **State** only; dispatches **Action**; no embedded business rules |
+
+### Constraints (fail the gate when violated)
+
+- **Views do not call APIs** — network and persistence live in effect handlers / stores / coordinators, not in `View` types.
+- **Views do not own business state** — no duplicated domain flags in the view layer; one source of truth in the store or parent feature state.
+- **No mutually exclusive booleans** — e.g. `isLoading && hasError` must be impossible; model exclusivity with an enum (or equivalent sum type).
+- **Invalid states impossible** — prefer enums with associated values over parallel optionals or independent flags.
+- **Async results flow through Action** — task completion, failures, and pagination must dispatch an action; the reducer (or store) updates **State**; never assign business fields from a `.task` or callback directly on the view.
+
+### Implementation habits
+
 - Keep side effects out of `body`; use `.task`, `.onAppear`, actions, or injected services with clear lifecycle ownership.
-- Choose property wrappers by ownership: `@State` for local value state, `@Binding` for parent-owned state, `@StateObject` / `@Observable` ownership per project baseline, and `@Environment` for shared dependencies.
+- Choose property wrappers by ownership: `@State` for local **UI-only** state (focus, sheet presentation tied to the widget), `@Binding` for parent-owned state, `@StateObject` / `@Observable` ownership per project baseline, and `@Environment` for shared dependencies.
 - Avoid unstable identity in `ForEach`; use durable IDs rather than indices when rows can move, insert, or delete.
 - Do not hide navigation, persistence, or network work inside computed view helpers.
 
