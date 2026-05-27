@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DavidSkills Mindset</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-2: #111827;
+      --panel: rgba(15, 23, 42, 0.82);
+      --panel-strong: rgba(17, 24, 39, 0.96);
+      --line: rgba(148, 163, 184, 0.22);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #a78bfa;
+      --good: #34d399;
+      --warn: #fbbf24;
+      --bad: #fb7185;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(167, 139, 250, 0.16), transparent 24%),
+        linear-gradient(180deg, #020617 0%, var(--bg) 45%, #020617 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    body {
+      padding: 32px 20px 56px;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px 34px 30px;
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.92)),
+        linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(167, 139, 250, 0.08));
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 4vw, 4.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 12ch;
+    }
+
+    .lede {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 66ch;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.62);
+      color: #cbd5e1;
+      font-size: 0.92rem;
+    }
+
+    .section {
+      margin-top: 26px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      background: rgba(15, 23, 42, 0.7);
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section p.note {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.flow {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      background: var(--panel);
+      min-height: 100%;
+    }
+
+    .card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr 60px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .arrow {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+      position: relative;
+      border-radius: 999px;
+    }
+
+    .arrow::after {
+      content: "";
+      position: absolute;
+      right: -2px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid var(--accent-2);
+      border-right: 2px solid var(--accent-2);
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .lane {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .lane-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mode {
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.82));
+      min-height: 138px;
+    }
+
+    .mode .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      white-space: nowrap;
+    }
+
+    .mode ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .vertical-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(17, 24, 39, 0.68);
+    }
+
+    .step::after {
+      content: "";
+      position: absolute;
+      left: 34px;
+      bottom: -12px;
+      width: 2px;
+      height: 12px;
+      background: linear-gradient(180deg, var(--accent), transparent);
+    }
+
+    .step:last-child::after {
+      display: none;
+    }
+
+    .num {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #dbeafe;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.28), transparent 58%),
+        rgba(30, 41, 59, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .step h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .step p, .step li {
+      color: var(--muted);
+    }
+
+    .flowchart {
+      overflow: auto;
+      padding: 10px 0 2px;
+    }
+
+    .flowchart svg {
+      width: 100%;
+      min-width: 980px;
+      height: auto;
+      display: block;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .legend .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.62);
+    }
+
+    .callout {
+      border-left: 4px solid var(--warn);
+      padding: 16px 18px;
+      background: rgba(251, 191, 36, 0.07);
+      border-radius: 14px;
+      color: #fde68a;
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .grid.flow,
+      .grid.two,
+      .flow-row {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-row {
+        gap: 16px;
+      }
+
+      .arrow {
+        display: none;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .num {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">DavidSkills / Mindset</div>
+      <h1>先路由，再執行；先文件，再行動。</h1>
+      <p class="lede">
+        這份 skill 的核心不是單一演算法，而是一個文件驅動的作業流程。
+        它把工作拆成有限的 mode，要求每一步只讀必要文件、遵守門檻、留下可審查的證據。
+      </p>
+      <div class="chips">
+        <span class="chip">Bootstrap-first router</span>
+        <span class="chip">Single active mode</span>
+        <span class="chip">Document authority</span>
+        <span class="chip">Readiness gate</span>
+        <span class="chip">Quality gate</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>1. 核心心智模型</h2>
+      <p class="note">把它想成「受文件驅動的狀態路由器」，而不是一般的自由對話流程。</p>
+      <div class="grid two">
+        <div class="card">
+          <strong>狀態不是領域模型，而是作業模式</strong>
+          <p>Planning、Development、Review、Performance、Exception、Update 都是不同的工作模式；每次只能有一個 current mode。</p>
+        </div>
+        <div class="card">
+          <strong>轉移條件來自下一步要做什麼</strong>
+          <p>當下一步變了，就 reroute。這讓流程保持短、乾淨、可重新載入，不把整個聊天脈絡當作唯一記憶。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>2. 高層流程圖</h2>
+      <p class="note">這張圖描述 mode 如何切換。你可以把它視為「隱含 FSM」，但文件本身更像 router。</p>
+      <div class="flowchart" aria-label="DavidSkills flowchart">
+        <svg viewBox="0 0 1280 360" role="img" aria-labelledby="title desc">
+          <title id="title">DavidSkills flowchart</title>
+          <desc id="desc">從 bootstrap 到各 mode，再到 quality 和 writeback 的流程圖。</desc>
+
+          <defs>
+            <linearGradient id="strokeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#38bdf8" />
+              <stop offset="100%" stop-color="#a78bfa" />
+            </linearGradient>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.35" />
+            </filter>
+          </defs>
+
+          <rect x="20" y="36" width="180" height="70" rx="18" fill="#111827" stroke="url(#strokeGrad)" stroke-width="2" filter="url(#glow)" />
+          <text x="110" y="66" text-anchor="middle" fill="#e5e7eb" font-size="19" font-weight="700">Bootstrap</text>
+          <text x="110" y="88" text-anchor="middle" fill="#94a3b8" font-size="14">先載入 superpowers / skill</text>
+
+          <line x1="200" y1="71" x2="270" y2="71" stroke="url(#strokeGrad)" stroke-width="3" />
+          <polygon points="270,71 258,64 258,78" fill="#a78bfa" />
+
+          <rect x="290" y="36" width="180" height="70" rx="18" fill="#111827" stroke="#38bdf8" stroke-width="2" filter="url(#glow)" />
+          <text x="380" y="66" text-anchor="middle" fill="#e5e7eb" font-size="19" font-weight="700">Router</text>
+          <text x="380" y="88" text-anchor="middle" fill="#94a3b8" font-size="14">只選一個 current mode</text>
+
+          <line x1="470" y1="71" x2="540" y2="71" stroke="url(#strokeGrad)" stroke-width="3" />
+          <polygon points="540,71 528,64 528,78" fill="#a78bfa" />
+
+          <rect x="560" y="26" width="180" height="90" rx="18" fill="#111827" stroke="#34d399" stroke-width="2" filter="url(#glow)" />
+          <text x="650" y="58" text-anchor="middle" fill="#e5e7eb" font-size="18" font-weight="700">Planning</text>
+          <text x="650" y="80" text-anchor="middle" fill="#94a3b8" font-size="14">architecture / design</text>
+          <text x="650" y="100" text-anchor="middle" fill="#94a3b8" font-size="14">task / test / verification</text>
+
+          <rect x="560" y="130" width="180" height="90" rx="18" fill="#111827" stroke="#38bdf8" stroke-width="2" filter="url(#glow)" />
+          <text x="650" y="162" text-anchor="middle" fill="#e5e7eb" font-size="18" font-weight="700">Development</text>
+          <text x="650" y="184" text-anchor="middle" fill="#94a3b8" font-size="14">只做 approved task.md</text>
+          <text x="650" y="204" text-anchor="middle" fill="#94a3b8" font-size="14">改完要回寫證據</text>
+
+          <rect x="560" y="234" width="180" height="90" rx="18" fill="#111827" stroke="#fbbf24" stroke-width="2" filter="url(#glow)" />
+          <text x="650" y="266" text-anchor="middle" fill="#e5e7eb" font-size="18" font-weight="700">Quality</text>
+          <text x="650" y="288" text-anchor="middle" fill="#94a3b8" font-size="14">neutral first, then stack checks</text>
+          <text x="650" y="308" text-anchor="middle" fill="#94a3b8" font-size="14">failures block completion</text>
+
+          <line x1="740" y1="71" x2="820" y2="71" stroke="url(#strokeGrad)" stroke-width="3" />
+          <polygon points="820,71 808,64 808,78" fill="#a78bfa" />
+
+          <rect x="840" y="36" width="180" height="70" rx="18" fill="#111827" stroke="#a78bfa" stroke-width="2" filter="url(#glow)" />
+          <text x="930" y="66" text-anchor="middle" fill="#e5e7eb" font-size="19" font-weight="700">Review</text>
+          <text x="930" y="88" text-anchor="middle" fill="#94a3b8" font-size="14">比對 docs 與 repo state</text>
+
+          <line x1="1020" y1="71" x2="1090" y2="71" stroke="url(#strokeGrad)" stroke-width="3" />
+          <polygon points="1090,71 1078,64 1078,78" fill="#a78bfa" />
+
+          <rect x="1110" y="36" width="150" height="70" rx="18" fill="#111827" stroke="#fb7185" stroke-width="2" filter="url(#glow)" />
+          <text x="1185" y="66" text-anchor="middle" fill="#e5e7eb" font-size="19" font-weight="700">Done</text>
+          <text x="1185" y="88" text-anchor="middle" fill="#94a3b8" font-size="14">or reroute</text>
+
+          <line x1="740" y1="175" x2="820" y2="175" stroke="url(#strokeGrad)" stroke-width="3" />
+          <polygon points="820,175 808,168 808,182" fill="#a78bfa" />
+
+          <line x1="740" y1="279" x2="820" y2="279" stroke="url(#strokeGrad)" stroke-width="3" />
+          <polygon points="820,279 808,272 808,286" fill="#a78bfa" />
+
+          <text x="775" y="150" text-anchor="middle" fill="#94a3b8" font-size="13">immediate next action changes</text>
+          <text x="775" y="254" text-anchor="middle" fill="#94a3b8" font-size="13">measurement or bottleneck work</text>
+        </svg>
+      </div>
+      <div class="legend">
+        <span class="tag">Bootstrap-first</span>
+        <span class="tag">One active mode</span>
+        <span class="tag">Read minimal files</span>
+        <span class="tag">Gate before implementation</span>
+        <span class="tag">Write back evidence</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>3. 每個 mode 的角色</h2>
+      <div class="flow-row">
+        <div class="lane">
+          <div class="lane-label">Before work</div>
+          <div class="mode">
+            <div class="title">Planning <span class="badge">定義邊界</span></div>
+            <ul>
+              <li>收斂架構、工作範圍、文件契約</li>
+              <li>準備 `task.md`、`design.md`、`test.md`、`verification.md`</li>
+              <li>通過 readiness gate 才能進入開發</li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="lane">
+          <div class="lane-label">Execution</div>
+          <div class="mode">
+            <div class="title">Development <span class="badge">執行批准任務</span></div>
+            <ul>
+              <li>只做已批准的 active phase</li>
+              <li>遵守 `task.md` 的順序與 handoff</li>
+              <li>做完就更新 task / verification</li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow" aria-hidden="true"></div>
+        <div class="lane">
+          <div class="lane-label">Validation</div>
+          <div class="mode">
+            <div class="title">Quality / Review <span class="badge">驗證與回歸</span></div>
+            <ul>
+              <li>Quality: 先 neutral，再跑 stack-specific checks</li>
+              <li>Review: 只報差異，不默默修正</li>
+              <li>不符合就回到 Planning 或 Development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>4. 文件驅動的規則</h2>
+      <div class="vertical-flow">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h3>文件先於行動</h3>
+            <p>這套 skill 的預設不是「先做再整理」，而是先把可執行文件準備好，讓後續 session 不需要重跑整段對話。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h3>每個文件有固定責任</h3>
+            <p>`architecture.md` 管邊界，`design.md` 管實作契約，`test.md` 管測試，`task.md` 管 active phase，`verification.md` 管證據。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h3>門檻不通過就不能前進</h3>
+            <p>若有 TODO、TBD、未決的路線選擇、或文件互相衝突，就要先修文件；不能靠口頭同意繞過門檻。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <h3>證據要可審查</h3>
+            <p>成功不是「我覺得完成了」，而是文件、repo state、測試輸出與 verification 能相互對得起來。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>5. 何時要 reroute</h2>
+      <div class="grid two">
+        <div class="card">
+          <strong>從 Planning reroute</strong>
+          <p>當你已經有明確 task、要開始實作、或需要驗證回歸，就不能再停留在規劃模式。</p>
+        </div>
+        <div class="card">
+          <strong>從 Development reroute</strong>
+          <p>如果發現架構邊界變了、task 不夠明確、或 readiness gate 失敗，就要回 Planning 而不是硬做。</p>
+        </div>
+        <div class="card">
+          <strong>從 Review reroute</strong>
+          <p>Review 只負責指出差異；如果要修正，就要正式切回 Development。</p>
+        </div>
+        <div class="card">
+          <strong>從 Performance reroute</strong>
+          <p>量測得到的結果若意味著邊界或流程要改，先回 Planning，不要把局部優化擴寫成無約束重構。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>6. 一句話總結</h2>
+      <div class="callout">
+        這套 skill 的 mindset 不是「一直對話直到自然收斂」，而是「用最小文件集定義當前狀態，通過門檻後執行，最後用證據回寫結果」。
+      </div>
+    </section>
+
+    <div class="footer">
+      DavidSkills Mindset · 文件驅動 · 單一 mode · 可重載 · 可審查
+    </div>
+  </main>
+</body>
+</html>
