@@ -6,7 +6,7 @@ Codex does not consume Cursor `.mdc` rules. To make davidskills auto-start in Co
 
 1. Clone davidskills somewhere stable, for example:
    ```bash
-   git clone git@github.com:firehourse/davidskills.git ~/workspace/davidskills
+   git clone git@github.com:pqteru/davidskills.git ~/workspace/davidskills
    ```
 2. Copy the bootstrap template into the workspace root where Codex will run:
    ```bash

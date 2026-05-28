@@ -1,26 +1,37 @@
-# Cursor: DavidSkills install
+# Cursor IDE Installation & Usage
 
-## 1. Package location
+Cursor automatically applies `.cursor/rules/*.mdc` files to every Cursor Chat session in the workspace. davidskills ships a single rule file that forces the AI to consult `skills/davidskills/SKILL.md` before any code generation.
 
-This repo includes `davidskills/` at the workspace root with **`skills/davidskills/`** as the bundled router pack (`protocols/`, `workflows/`, `templates/`, entry `SKILL.md`).
+## Install
 
-## 2. Install the rule
+1. Clone davidskills into a stable local path, for example:
+   ```bash
+   git clone git@github.com:pqteru/davidskills.git ~/workspace/davidskills
+   ```
 
-```bash
-mkdir -p .cursor/rules
-cp davidskills/.cursor/rules/davidskills.mdc .cursor/rules/
-```
+2. Copy the davidskills rule into your target project:
+   ```bash
+   mkdir -p .cursor/rules
+   cp ~/workspace/davidskills/.cursor/rules/davidskills.mdc .cursor/rules/
+   ```
 
-## 3. Workspace symlink (SkillDocs)
+That is the entire bootstrap. The next time Cursor Chat opens in the project, davidskills is active.
 
-DavidSkills uses **`.davidskill`** at the project root to point at the active SkillDocs project folder (under your `docs/` tree or equivalent). See `skills/davidskills/protocols/workspace-setup.md`.
+## Why no extra reinforcement is needed
 
-## 4. `alwaysApply`
+Unlike Claude Code, Cursor's native rule mechanism re-loads the `.mdc` file at every chat invocation. davidskills rules therefore stay near the prompt entry and never drift into the model's weak-attention zone (doctrine § 2). No `CLAUDE.md`-style hardening or `UserPromptSubmit`-style hook is required.
 
-Default is **`false`** (description-triggered). Set **`true`** in your copy if you want the router considered on every chat.
+## First-run workspace mapping
 
-## Manual fallback
+On the first planning session in a workspace, davidskills will:
 
-```text
-Read and follow davidskills/skills/davidskills/SKILL.md from the workspace root before proceeding.
-```
+1. derive the workspace's `skilldocs` location dynamically,
+2. write the resolved mapping into `skills/davidskills/config/workspace-map.local.json`,
+3. keep that mapping file untracked via `.gitignore`,
+4. create or refresh the workspace-local `.davidskills` symlink as needed.
+
+You do not need to pre-populate `workspace-map.local.json`; it is local machine state and is created lazily when the workflow first needs it.
+
+## Clean-machine reinstall simulation
+
+To simulate a fresh install on the same machine, remove the workspace `.cursor/rules/davidskills.mdc`, the `.davidskills` symlink, and the local `workspace-map.local.json`, then repeat the install steps.
